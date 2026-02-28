@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://5eg7hhvlxbjk"]
 
+[ext_resource type="Script" uid="uid://b7e3lghfbochp" path="res://scenes/brie.gd" id="1_65ot0"]
 [ext_resource type="Texture2D" uid="uid://dgjq518sqx5c1" path="res://assets/cheeseboard_item_pack/brie_64x64.png" id="1_wjwwo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65ot0"]
@@ -20,11 +21,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_axlop"]
 radius = 25.495098
 
-[node name="brie" type="CharacterBody2D" unique_id=1710557287]
+[node name="brie" type="Node2D" unique_id=435835852]
+script = ExtResource("1_65ot0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826925089]
 sprite_frames = SubResource("SpriteFrames_xnrx5")
 frame_progress = 0.121943384
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=940438217]
+[node name="Area2D" type="Area2D" parent="." unique_id=44502803]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=940438217]
 shape = SubResource("CircleShape2D_axlop")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

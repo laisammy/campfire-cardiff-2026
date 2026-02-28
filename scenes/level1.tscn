@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_6sh32"]
 [ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="2_ejswk"]
-[ext_resource type="PackedScene" uid="uid://doxjk5iqugvk" path="res://scenes/gouda.tscn" id="3_bbk5w"]
 [ext_resource type="FontFile" uid="uid://ewmbpv8fq43f" path="res://assets/font/PixelOperator8-Bold.ttf" id="3_conm7"]
 [ext_resource type="PackedScene" uid="uid://b53picbcn8742" path="res://scenes/pipe1.tscn" id="4_conm7"]
 [ext_resource type="PackedScene" uid="uid://bl56l21hbjxk3" path="res://scenes/pipe2.tscn" id="5_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://boxbpfn1yud06" path="res://scenes/kill_zone.tscn" id="6_u3awl"]
 [ext_resource type="Script" uid="uid://dc88qxhwdkr7n" path="res://scenes/game_manager.gd" id="7_ejswk"]
+[ext_resource type="PackedScene" uid="uid://5eg7hhvlxbjk" path="res://scenes/brie.tscn" id="8_bbk5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyxdr"]
 texture = ExtResource("1_6sh32")
@@ -236,25 +236,6 @@ texture = ExtResource("1_6sh32")
 [sub_resource type="TileSet" id="TileSet_kpk0m"]
 sources/0 = SubResource("TileSetAtlasSource_fyxdr")
 
-[sub_resource type="GDScript" id="GDScript_x4b8f"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(\"Enter\")
-	self.queue_free()
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88ety"]
 size = Vector2(16, 32)
 
@@ -273,10 +254,6 @@ position = Vector2(-15, 78)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1853186614]
 zoom = Vector2(4, 4)
-
-[node name="gouda" parent="." unique_id=1050007645 instance=ExtResource("3_bbk5w")]
-position = Vector2(239, -31)
-script = SubResource("GDScript_x4b8f")
 
 [node name="pipe1" parent="." unique_id=169049826 instance=ExtResource("4_conm7")]
 z_index = -1
@@ -325,3 +302,7 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("3_conm7")
 theme_override_font_sizes/font_size = 20
 text = "Cheese collected: 0"
+
+[node name="brie" parent="." unique_id=1710557287 instance=ExtResource("8_bbk5w")]
+position = Vector2(238.00002, -26)
+scale = Vector2(0.3, 0.3)

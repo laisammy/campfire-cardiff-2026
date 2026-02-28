@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://v166f4436xkb"]
+
+[ext_resource type="Script" uid="uid://d2m7jlupr2krr" path="res://kill_zone_2.gd" id="1_jpmmv"]
+
+[node name="killZone2" type="Area2D" unique_id=2085747341]
+script = ExtResource("1_jpmmv")
+
+[node name="Timer" type="Timer" parent="." unique_id=745127367]

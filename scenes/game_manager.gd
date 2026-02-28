@@ -5,4 +5,8 @@ var points = 0
 
 func addPoint():
 	points += 1
-	label.text = "Cheese collected: " + points
+	label.text = "Cheese collected: " + str(points)
+	if points == 1:
+		get_tree().change_scene_to_file("res://scenes/level_two.tscn")
+	if points == 2:
+		
