@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://df5bfgmovng2u"]
 
-[ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_qcd3b"]
-[ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="2_88ety"]
-[ext_resource type="PackedScene" uid="uid://b53picbcn8742" path="res://scenes/pipe1.tscn" id="4_x4b8f"]
-[ext_resource type="PackedScene" uid="uid://doxjk5iqugvk" path="res://scenes/gouda.tscn" id="6_dw7u0"]
+[ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_6sh32"]
+[ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="2_ejswk"]
+[ext_resource type="PackedScene" uid="uid://doxjk5iqugvk" path="res://scenes/gouda.tscn" id="3_bbk5w"]
+[ext_resource type="PackedScene" uid="uid://b53picbcn8742" path="res://scenes/pipe1.tscn" id="4_conm7"]
+[ext_resource type="PackedScene" uid="uid://bl56l21hbjxk3" path="res://scenes/pipe2.tscn" id="5_d3jkd"]
+[ext_resource type="PackedScene" uid="uid://boxbpfn1yud06" path="res://scenes/kill_zone.tscn" id="6_u3awl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyxdr"]
-texture = ExtResource("1_qcd3b")
+texture = ExtResource("1_6sh32")
 1:1/0 = 0
 2:1/0 = 0
 4:1/0 = 0
@@ -232,23 +234,72 @@ texture = ExtResource("1_qcd3b")
 [sub_resource type="TileSet" id="TileSet_kpk0m"]
 sources/0 = SubResource("TileSetAtlasSource_fyxdr")
 
-[node name="test_level" type="Node2D" unique_id=1865630231]
+[sub_resource type="GDScript" id="GDScript_x4b8f"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(\"Enter\")
+	self.queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ety"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahbqi"]
+size = Vector2(32, 11)
+
+[node name="level1" type="Node2D" unique_id=1865630231]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1332564966]
 z_index = -1
 tile_map_data = PackedByteArray("AAD+//z/AAAJAAUAAAD+//3/AAALAAMAAAD+//7/AAALAAMAAAD+////AAAPAAIAAAD+/wAAAAAUAAQAAAD+/wEAAAAPAAQAAAD+/wIAAAAPAAQAAAD+/wMAAAAWAAYAAAD+/wQAAAARAAQAAAD+/wUAAAARAAQAAAD///z/AAAJAAUAAAD///3/AAALAAMAAAD///7/AAALAAMAAAD/////AAAPAAIAAAD//wAAAAAUAAQAAAD//wEAAAAPAAQAAAD//wIAAAAPAAQAAAD//wMAAAAPAAUAAAD//wQAAAALAAMAAAD//wUAAAALAAMAAAAAAPz/AAAJAAUAAAAAAP3/AAALAAMAAAAAAP7/AAALAAMAAAAAAP//AAAPAAIAAAAAAAAAAAAUAAQAAAAAAAEAAAAPAAQAAAAAAAIAAAAPAAQAAAAAAAMAAAAPAAUAAAAAAAQAAAALAAMAAAAAAAUAAAALAAMAAAABAPz/AAAJAAUAAAABAP3/AAALAAMAAAABAP7/AAALAAMAAAABAP//AAAPAAIAAAABAAAAAAAUAAQAAAABAAEAAAAPAAQAAAABAAIAAAAPAAQAAAABAAMAAAAUAAYAAAABAAQAAAALAAMAAAABAAUAAAALAAMAAAACAPz/AAAUAAIAAAACAP3/AAANAAQAAAACAP7/AAANAAQAAAACAP//AAAUAAMAAAACAAAAAAAUAAQAAAACAAEAAAAPAAQAAAACAAIAAAAPAAQAAAACAAMAAAAPAAQAAAACAAQAAAAPAAQAAAACAAUAAAAPAAQAAAADAPz/AAAVAAIAAAADAP3/AAAVAAMAAAADAP7/AAAVAAMAAAADAP//AAAVAAMAAAADAAAAAAAVAAQAAAADAAEAAAAPAAQAAAADAAIAAAAPAAQAAAADAAMAAAAPAAQAAAADAAQAAAAPAAQAAAADAAUAAAAPAAQAAAAEAPz/AAAWAAIAAAAEAP3/AAARAAMAAAAEAP7/AAARAAMAAAAEAP//AAAWAAMAAAAEAAAAAAAWAAQAAAAEAAEAAAAPAAQAAAAEAAIAAAAWAAYAAAAEAAMAAAARAAQAAAAEAAUAAAALAAMAAAAFAPz/AAAJAAUAAAAFAP3/AAALAAMAAAAFAP7/AAALAAMAAAAFAP//AAAXAAMAAAAFAAAAAAAWAAQAAAAFAAEAAAAPAAQAAAAFAAIAAAAXAAYAAAAFAAMAAAALAAMAAAAFAAQAAAALAAMAAAAFAAUAAAALAAMAAAAGAPz/AAAJAAUAAAAGAP3/AAALAAMAAAAGAP7/AAALAAMAAAAGAP//AAAYAAMAAAAGAAAAAAAYAAQAAAAGAAEAAAAYAAUAAAAGAAIAAAAYAAYAAAAGAAMAAAALAAMAAAAGAAQAAAALAAMAAAAGAAUAAAALAAMAAAAHAPz/AAAJAAUAAAAHAP3/AAALAAMAAAAHAP7/AAALAAMAAAAHAP//AAAZAAMAAAAHAAAAAAAZAAQAAAAHAAEAAAAPAAQAAAAHAAIAAAAZAAYAAAAHAAMAAAALAAMAAAAHAAQAAAALAAMAAAAHAAUAAAALAAMAAAAIAPz/AAAJAAUAAAAIAP3/AAANAAQAAAAIAAEAAAAPAAQAAAAIAAIAAAAPAAUAAAAIAAMAAAALAAMAAAAIAAUAAAANAAQAAAAJAAEAAAAPAAQAAAAJAAIAAAAPAAQAAAAJAAMAAAAPAAQAAAAJAAQAAAAPAAQAAAAJAAUAAAAPAAQAAAAKAPz/AAAJAAUAAAAKAAAAAAASAAUAAAAKAAEAAAAPAAQAAAAKAAIAAAAPAAQAAAAKAAMAAAAPAAQAAAAKAAQAAAALAAMAAAAKAAUAAAARAAQAAAALAPz/AAAJAAUAAAALAP3/AAALAAMAAAALAP7/AAALAAMAAAALAP//AAAPAAIAAAALAAAAAAAWAAQAAAALAAEAAAAPAAQAAAALAAIAAAAPAAQAAAALAAMAAAAPAAQAAAALAAQAAAAPAAUAAAALAAUAAAALAAMAAAAMAPz/AAAJAAUAAAAMAP3/AAALAAMAAAAMAP7/AAALAAMAAAAMAP//AAAPAAIAAAAMAAAAAAAWAAQAAAAMAAEAAAAPAAQAAAAMAAIAAAAPAAQAAAAMAAMAAAAPAAQAAAAMAAQAAAAPAAUAAAAMAAUAAAALAAMAAAANAPz/AAAJAAUAAAANAP3/AAALAAMAAAANAP7/AAALAAMAAAANAP//AAAPAAIAAAANAAAAAAAWAAQAAAANAAEAAAAPAAQAAAANAAIAAAAPAAQAAAANAAMAAAAPAAQAAAANAAQAAAAUAAYAAAANAAUAAAANAAQAAAAOAPz/AAAJAAUAAAAOAP3/AAALAAMAAAAOAP7/AAALAAMAAAAOAP//AAAPAAIAAAAOAAAAAAAWAAQAAAAOAAEAAAAPAAQAAAAOAAIAAAAPAAQAAAAOAAMAAAAPAAQAAAAOAAQAAAAPAAQAAAAOAAUAAAAPAAQAAAAPAPz/AAAJAAUAAAAPAP3/AAALAAMAAAAPAP7/AAALAAMAAAAPAP//AAAPAAIAAAAPAAAAAAAWAAQAAAAPAAEAAAAPAAQAAAAPAAIAAAAPAAQAAAAPAAMAAAAPAAQAAAAPAAQAAAAPAAQAAAAPAAUAAAAPAAQAAAAIAP//AAAUAAMAAAAIAAAAAAAWAAQAAAAEAAQAAAALAAMAAAAIAAQAAAANAAQAAAAIAP7/AAALAAMAAAAJAP3/AAAOAAMAAAAKAP3/AAAQAAMAAAAJAP7/AAAOAAQAAAAJAP//AAAOAAQAAAAKAP//AAAQAAQAAAAKAP7/AAAQAAQAAAAJAAAAAAATAAUAAAAJAPz/AAAJAAUAAAA=")
 tile_set = SubResource("TileSet_kpk0m")
 
-[node name="player" parent="." unique_id=775988961 instance=ExtResource("2_88ety")]
-position = Vector2(2, -13)
+[node name="player" parent="." unique_id=775988961 instance=ExtResource("2_ejswk")]
+position = Vector2(-15, 78)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1853186614]
 zoom = Vector2(4, 4)
 
-[node name="gouda" parent="." unique_id=1050007645 instance=ExtResource("6_dw7u0")]
+[node name="gouda" parent="." unique_id=1050007645 instance=ExtResource("3_bbk5w")]
 position = Vector2(239, -31)
+script = SubResource("GDScript_x4b8f")
 
-[node name="pipe1" parent="." unique_id=169049826 instance=ExtResource("4_x4b8f")]
+[node name="pipe1" parent="." unique_id=169049826 instance=ExtResource("4_conm7")]
 z_index = -1
 position = Vector2(160, -23)
-rotation = 1.5707964
+
+[node name="pipe2" parent="." unique_id=663875524 instance=ExtResource("4_conm7")]
+z_index = -1
+position = Vector2(48, 81)
+
+[node name="pipe3" parent="." unique_id=161348729 instance=ExtResource("5_d3jkd")]
+position = Vector2(159, 49)
+
+[node name="killZone" parent="." unique_id=2091219748 instance=ExtResource("6_u3awl")]
+position = Vector2(11, 26)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="killZone" unique_id=1595579663]
+polygon = PackedVector2Array(53.37316, -20.252922, 53, -76, 37, -76, 36, -21, -43, -21, -43, 21, 21, 22, 21, 38, 53, 38, 53, 21, 53, 6, 79, 6, 79, -20)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="killZone" unique_id=1008184364]
+polygon = PackedVector2Array(107, -20, 107, 6, 133, 3, 157, 3, 169, 6, 169, 39, 213, 39, 213, 70, 245, 70, 245, 39, 245, -21, 165, -21, 165, -41, 133, -40, 133, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killZone" unique_id=693564990]
+position = Vector2(141, 54)
+shape = SubResource("RectangleShape2D_88ety")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killZone" unique_id=1753169550]
+position = Vector2(149, -63.5)
+shape = SubResource("RectangleShape2D_ahbqi")

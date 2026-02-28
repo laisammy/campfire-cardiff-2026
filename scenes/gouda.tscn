@@ -29,6 +29,7 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_f01q2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1807945658]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2141804678]
 scale = Vector2(0.3, 0.3)

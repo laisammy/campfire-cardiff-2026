@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://3o674j8p0nws"]
 
 [ext_resource type="Texture2D" uid="uid://q88541g58qr8" path="res://assets/Pipes_edited.png" id="1_d00xs"]
+[ext_resource type="Script" uid="uid://ctlvprakq2fno" path="res://scenes/pipeRotation.gd" id="1_x0j11"]
+[ext_resource type="Texture2D" uid="uid://b00nonasan4x" path="res://assets/rotateDisplay.png" id="3_bhi5y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d00xs"]
 radius = 90.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2j1"]
+size = Vector2(18, 32)
+
 [node name="pipe3" type="Node2D" unique_id=1649720351]
 z_index = -1
+script = ExtResource("1_x0j11")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=834202392]
 scale = Vector2(0.5, 0.5)
@@ -20,3 +26,12 @@ scale = Vector2(0.5, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotateArea" unique_id=515689350]
 shape = SubResource("CircleShape2D_d00xs")
 debug_color = Color(0.6627451, 0.5137255, 0, 0.21960784)
+
+[node name="PlayerCollision" type="Area2D" parent="." unique_id=1427845288]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision" unique_id=2036206275]
+shape = SubResource("RectangleShape2D_xw2j1")
+
+[node name="rotateDisplay" type="Sprite2D" parent="." unique_id=1141076619]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_bhi5y")
