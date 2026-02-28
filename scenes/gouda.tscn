@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://doxjk5iqugvk"]
+
+[ext_resource type="Texture2D" uid="uid://rth3ey66tghn" path="res://assets/cheeseboard_item_pack/gouda_64x64.png" id="1_hg3ek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybxfv"]
+atlas = ExtResource("1_hg3ek")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f01q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybxfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cwf0f"]
+radius = 27.073973
+
+[node name="gouda" type="CharacterBody2D" unique_id=1050007645]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1040835262]
+sprite_frames = SubResource("SpriteFrames_f01q2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141804678]
+shape = SubResource("CircleShape2D_cwf0f")

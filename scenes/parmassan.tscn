@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://oj4gtwotfmpw"]
+
+[ext_resource type="Texture2D" uid="uid://bxl4oolpxr1sx" path="res://assets/cheeseboard_item_pack/parmassan_64x64.png" id="1_n6wl3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4l1x"]
+atlas = ExtResource("1_n6wl3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipqbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4l1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onv28"]
+radius = 26.683329
+
+[node name="parmassan" type="CharacterBody2D" unique_id=1144672012]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165902981]
+sprite_frames = SubResource("SpriteFrames_ipqbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1225463189]
+shape = SubResource("CircleShape2D_onv28")

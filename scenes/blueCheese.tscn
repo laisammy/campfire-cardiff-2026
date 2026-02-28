@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://krwgljoqarog"]
+
+[ext_resource type="Texture2D" uid="uid://csp3biyncsft7" path="res://assets/cheeseboard_item_pack/blue_cheese_64x64.png" id="1_rc8nj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boqn1"]
+atlas = ExtResource("1_rc8nj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ahp8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boqn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1a4h"]
+radius = 23.194826
+
+[node name="blueCheese" type="CharacterBody2D" unique_id=1707797770]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588341782]
+sprite_frames = SubResource("SpriteFrames_ahp8p")
+autoplay = "default"
+frame_progress = 0.24126315
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91634281]
+shape = SubResource("CircleShape2D_y1a4h")
