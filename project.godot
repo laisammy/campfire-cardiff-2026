@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="campfireCardiff2026"
-run/main_scene="uid://dtikxlvn7vqdv"
+run/main_scene="uid://df5bfgmovng2u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
