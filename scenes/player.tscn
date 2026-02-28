@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://llpnc8b8b66p"]
 
 [ext_resource type="Texture2D" uid="uid://bnxkon8iddh6" path="res://assets/PixelRats_Free_Carysaurus/PixelRats_Free_Carysaurus/Rat-LightGrey-Walk.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://8gig8dn4lsh8" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")

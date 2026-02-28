@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://doxjk5iqugvk"]
 
 [ext_resource type="Texture2D" uid="uid://rth3ey66tghn" path="res://assets/cheeseboard_item_pack/gouda_64x64.png" id="1_hg3ek"]
+[ext_resource type="Script" uid="uid://qdwfpd8xlco8" path="res://scenes/gouda.gd" id="1_ybxfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybxfv"]
 atlas = ExtResource("1_hg3ek")
@@ -20,12 +21,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwf0f"]
 radius = 27.073973
 
-[node name="gouda" type="CharacterBody2D" unique_id=1050007645]
+[node name="gouda" type="Node2D" unique_id=567530362]
+script = ExtResource("1_ybxfv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1040835262]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_f01q2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141804678]
+[node name="Area2D" type="Area2D" parent="." unique_id=1807945658]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2141804678]
 scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_cwf0f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

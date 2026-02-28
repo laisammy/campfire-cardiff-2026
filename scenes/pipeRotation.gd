@@ -1,36 +1,53 @@
 extends Node2D
 
 @onready var pipe1: Node2D = $"."
-@onready var label: Label = $RotateDisplay/Label
-@onready var rotate_display: CanvasLayer = $RotateDisplay
-@onready var player: Node2D = $"../Player"   # adjust if needed
+@onready var rotate_display: Sprite2D = $rotateDisplay
 
 var playerInRange = false
+
 var degreesIncrement = 90
 
-var origin_position: Vector2
-var origin_rotation: float
-
 func _ready():
-	origin_position = position
-	origin_rotation = rotation_degrees
 	rotate_display.visible = false
+	
+	if rotation_degrees == 90:
+		rotate_display.rotation_degrees = 270
+	elif rotation_degrees == 180:
+		rotate_display.rotation_degrees = 180
+	elif rotation_degrees == 270:
+		rotate_display.rotation_degrees = 90
+	elif rotation_degrees == 360:
+		rotation_degrees = 0
+		rotate_display.rotation_degrees = 0
+	else:
+		print("Error with rotatePipe, invalid degree.")
 
-func _process(delta):
-	var moved = position.distance_to(origin_position) > 0.1
-	var rotated = rotation_degrees != origin_rotation
-	rotate_display.visible = moved or rotated
-
-	if playerInRange and Input.is_action_just_pressed("rotatePipe"):
-		rotatePipe()
+func _process(_delta):
+	if playerInRange:
+		if Input.is_action_just_pressed("rotatePipe"):
+			rotatePipe()
 
 func rotatePipe():
 	rotation_degrees += degreesIncrement
+	if rotation_degrees == 90:
+		rotate_display.rotation_degrees = 270
+	elif rotation_degrees == 180:
+		rotate_display.rotation_degrees = 180
+	elif rotation_degrees == 270:
+		rotate_display.rotation_degrees = 90
+	elif rotation_degrees == 360:
+		rotation_degrees = 0
+		rotate_display.rotation_degrees = 0
+	else:
+		print("Error with rotatePipe, invalid degree.")
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == player:
-		playerInRange = true
+func _on_rotate_area_body_entered(_body: Node2D) -> void:
+	print("ENTER")
+	playerInRange = true
+	rotate_display.visible = true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body == player:
-		playerInRange = false
+
+func _on_rotate_area_body_exited(_body: Node2D) -> void:
+	print("EXIT")
+	playerInRange = false
+	rotate_display.visible = false
