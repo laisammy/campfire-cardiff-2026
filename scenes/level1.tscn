@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_6sh32"]
 [ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="2_ejswk"]
 [ext_resource type="PackedScene" uid="uid://doxjk5iqugvk" path="res://scenes/gouda.tscn" id="3_bbk5w"]
+[ext_resource type="FontFile" uid="uid://ewmbpv8fq43f" path="res://assets/font/PixelOperator8-Bold.ttf" id="3_conm7"]
 [ext_resource type="PackedScene" uid="uid://b53picbcn8742" path="res://scenes/pipe1.tscn" id="4_conm7"]
 [ext_resource type="PackedScene" uid="uid://bl56l21hbjxk3" path="res://scenes/pipe2.tscn" id="5_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://boxbpfn1yud06" path="res://scenes/kill_zone.tscn" id="6_u3awl"]
+[ext_resource type="Script" uid="uid://dc88qxhwdkr7n" path="res://scenes/game_manager.gd" id="7_ejswk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyxdr"]
 texture = ExtResource("1_6sh32")
@@ -303,3 +305,23 @@ shape = SubResource("RectangleShape2D_88ety")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="killZone" unique_id=1753169550]
 position = Vector2(149, -63.5)
 shape = SubResource("RectangleShape2D_ahbqi")
+
+[node name="GameManager" type="Node" parent="." unique_id=630037825]
+unique_name_in_owner = true
+script = ExtResource("7_ejswk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=852733165]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=765255425]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1442602471]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_conm7")
+theme_override_font_sizes/font_size = 20
+text = "Cheese collected: 0"
