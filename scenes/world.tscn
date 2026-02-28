@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://dtikxlvn7vqdv"]
+[gd_scene format=4 uid="uid://dtikxlvn7vqdv"]
 
 [ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="2_rwgxs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -251,4 +252,12 @@ sources/0 = SubResource("TileSetAtlasSource_rwgxs")
 [node name="world" type="Node2D" unique_id=86837647]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=768093448]
+tile_map_data = PackedByteArray("AAAAAP//AAAPAAUAAAABAP//AAAPAAUAAAADAP//AAAPAAUAAAAEAP//AAAPAAUAAAAFAP//AAAPAAUAAAAGAP//AAAPAAUAAAAHAP//AAAPAAUAAAAIAP//AAAPAAUAAAAJAP//AAAPAAUAAAAKAP//AAAPAAUAAAALAP//AAAPAAUAAAAMAP//AAAPAAUAAAAOAP//AAAPAAUAAAANAP//AAAPAAUAAAAPAP//AAAPAAUAAAAQAP//AAAPAAUAAAACAP//AAAPAAUAAAARAP//AAAPAAUAAAASAP//AAAPAAUAAAATAP//AAAPAAUAAAAUAP//AAAPAAUAAAAVAP//AAAPAAUAAAAWAP//AAAPAAUAAAD/////AAAOAAUAAAD///7/AAAOAAUAAAD///3/AAAOAAUAAAD///z/AAAOAAUAAAD///v/AAAOAAUAAAD///r/AAAOAAUAAAAXAP//AAAOAAUAAAAYAP//AAAOAAUAAAAYAP7/AAAOAAUAAAAYAP3/AAAOAAUAAAAYAPz/AAAOAAUAAAAYAPv/AAAOAAUAAAAYAPr/AAAOAAUAAAAYAPn/AAAOAAUAAAA=")
 tile_set = SubResource("TileSet_4wyf3")
+
+[node name="player" parent="." unique_id=775988961 instance=ExtResource("2_rwgxs")]
+position = Vector2(21, -87)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=74404294]
+position = Vector2(193, -110)
+zoom = Vector2(3, 3)
