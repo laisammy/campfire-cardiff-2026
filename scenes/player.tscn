@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://llpnc8b8b66p"]
 
 [ext_resource type="Texture2D" uid="uid://bnxkon8iddh6" path="res://assets/PixelRats_Free_Carysaurus/PixelRats_Free_Carysaurus/Rat-LightGrey-Walk.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://8gig8dn4lsh8" path="res://scenes/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -43,6 +44,7 @@ radius = 5.0
 height = 24.0
 
 [node name="player" type="CharacterBody2D" unique_id=775988961]
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1113138441]
 position = Vector2(0, -16)
