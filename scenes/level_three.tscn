@@ -1,9 +1,12 @@
 [gd_scene format=4 uid="uid://blufuwmowmh3k"]
 
 [ext_resource type="Texture2D" uid="uid://7yox4wwsgr2v" path="res://assets/TileSet_Dunegonjual.png" id="1_ol28e"]
-[ext_resource type="PackedScene" path="res://scenes/pipe1.tscn" id="2_jyw0m"]
+[ext_resource type="PackedScene" uid="uid://b53picbcn8742" path="res://scenes/pipe1.tscn" id="2_jyw0m"]
 [ext_resource type="PackedScene" uid="uid://krwgljoqarog" path="res://scenes/blueCheese.tscn" id="3_87c5r"]
 [ext_resource type="PackedScene" uid="uid://llpnc8b8b66p" path="res://scenes/player.tscn" id="4_yguh4"]
+[ext_resource type="Script" uid="uid://dc88qxhwdkr7n" path="res://scenes/game_manager.gd" id="5_yguh4"]
+[ext_resource type="PackedScene" uid="uid://d5whaglbst1o" path="res://scenes/kill_zone_3.tscn" id="6_crxtl"]
+[ext_resource type="FontFile" uid="uid://ewmbpv8fq43f" path="res://assets/font/PixelOperator8-Bold.ttf" id="7_s6t3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crxtl"]
 texture = ExtResource("1_ol28e")
@@ -253,6 +256,37 @@ sources/0 = SubResource("TileSetAtlasSource_crxtl")
 
 [node name="LevelThree" type="Node2D" unique_id=398610314]
 
+[node name="GameManager" type="Node" parent="." unique_id=2006143017]
+unique_name_in_owner = true
+script = ExtResource("5_yguh4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576722771]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1401905878]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=407454204]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("7_s6t3g")
+theme_override_font_sizes/font_size = 20
+text = "Cheese collected: 2"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=1496887397]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_top = 194.0
+offset_right = 589.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource("7_s6t3g")
+theme_override_font_sizes/font_size = 30
+text = "You win!"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=380931418]
 tile_map_data = PackedByteArray("AAAEAPb/AAALAAMAAAAFAPb/AAALAAMAAAAFAPf/AAALAAMAAAAEAPf/AAALAAMAAAAIAPb/AAALAAMAAAAJAPb/AAALAAMAAAAJAPf/AAALAAMAAAAIAPf/AAALAAMAAAAIAPr/AAALAAMAAAAJAPr/AAALAAMAAAAIAPv/AAALAAMAAAAJAPv/AAALAAMAAAAKAPr/AAALAAMAAAALAPr/AAALAAMAAAALAPv/AAALAAMAAAAKAPv/AAALAAMAAAAKAPn/AAALAAMAAAALAPn/AAALAAMAAAALAPj/AAALAAMAAAAKAPj/AAALAAMAAAAGAPn/AAALAAMAAAAHAPn/AAALAAMAAAAHAPj/AAALAAMAAAAGAPj/AAALAAMAAAAGAPT/AAALAAMAAAAGAPX/AAALAAMAAAAHAPX/AAAbAAMAAAAHAPT/AAAbAAIAAAAKAPT/AAAfAAIAAAAKAPX/AAAfAAMAAAALAPX/AAALAAMAAAALAPT/AAALAAMAAAAMAPT/AAALAAMAAAAMAPX/AAALAAMAAAANAPX/AAALAAMAAAANAPT/AAALAAMAAAAQAPT/AAALAAMAAAARAPT/AAALAAMAAAARAPX/AAALAAMAAAAQAPX/AAALAAMAAAARAPP/AAALAAMAAAARAPL/AAALAAMAAAAQAPL/AAALAAMAAAAQAPP/AAALAAMAAAAPAPL/AAALAAMAAAAOAPL/AAALAAMAAAAOAPP/AAALAAMAAAAPAPP/AAALAAMAAAAOAPb/AAALAAMAAAAPAPb/AAALAAMAAAAPAPf/AAALAAMAAAAOAPf/AAALAAMAAAAFAPX/AAAPAAIAAAAEAPX/AAAPAAIAAAADAPX/AAANAAIAAAADAPb/AAANAAMAAAADAPf/AAANAAMAAAADAPj/AAANAAUAAAAEAPj/AAAPAAUAAAAFAPj/AAAPAAUAAAAFAPn/AAANAAQAAAAGAPr/AAAPAAUAAAAHAPr/AAAPAAUAAAAFAPr/AAANAAUAAAAHAPv/AAANAAMAAAAHAPz/AAANAAUAAAAIAPz/AAAPAAUAAAAJAPz/AAAPAAUAAAAKAPz/AAAPAAUAAAALAPz/AAAPAAUAAAAMAPz/AAARAAUAAAAMAPv/AAARAAQAAAAMAPr/AAARAAQAAAAMAPn/AAARAAQAAAAMAPj/AAARAAQAAAAGAPP/AAAOAAIAAAAHAPP/AAAOAAIAAAAFAPT/AAANAAMAAAAFAPP/AAANAAIAAAANAPL/AAANAAQAAAANAPH/AAANAAIAAAAOAPH/AAAOAAIAAAAPAPH/AAAOAAIAAAAQAPH/AAAOAAIAAAARAPH/AAAOAAIAAAASAPH/AAARAAIAAAASAPL/AAARAAMAAAASAPP/AAARAAMAAAASAPT/AAARAAMAAAASAPX/AAARAAMAAAASAPb/AAARAAUAAAARAPb/AAAPAAUAAAAQAPb/AAAPAAUAAAANAPP/AAANAAQAAAAOAPT/AAAOAAMAAAAPAPT/AAAQAAMAAAAPAPX/AAAQAAQAAAAOAPX/AAAOAAQAAAAKAPb/AAAOAAMAAAALAPb/AAAPAAMAAAAMAPb/AAAPAAMAAAANAPb/AAAQAAMAAAANAPf/AAAQAAQAAAAKAPf/AAAOAAQAAAALAPf/AAAPAAQAAAAMAPf/AAAPAAQAAAAJAPj/AAAQAAMAAAAIAPj/AAAOAAMAAAAIAPn/AAAOAAQAAAAJAPn/AAAQAAQAAAAHAPf/AAAQAAQAAAAGAPf/AAAOAAQAAAAGAPb/AAAOAAMAAAAHAPb/AAAQAAMAAAAJAPX/AAAeAAMAAAAJAPT/AAAdAAIAAAAIAPX/AAAcAAMAAAAIAPT/AAAcAAIAAAAIAPP/AAAOAAQAAAAJAPP/AAAPAAQAAAAIAPL/AAAOAAQAAAAJAPL/AAAPAAQAAAAKAPL/AAAPAAQAAAALAPL/AAAPAAQAAAAMAPH/AAAQAAMAAAALAPH/AAAPAAMAAAAKAPH/AAAPAAMAAAAJAPH/AAAPAAMAAAAIAPH/AAAOAAMAAAAKAPP/AAAPAAQAAAALAPP/AAAPAAQAAAAMAPL/AAAQAAQAAAAMAPP/AAAQAAQAAAANAPj/AAAOAAQAAAAOAPj/AAAWAAQAAAAPAPj/AAAWAAQAAAAQAPf/AAAWAAQAAAARAPf/AAAWAAQAAAASAPf/AAAWAAQAAAAQAPj/AAAVAAUAAAARAPj/AAAVAAUAAAASAPj/AAAQAAQAAAANAPn/AAAOAAQAAAAOAPn/AAAVAAUAAAAPAPn/AAAVAAUAAAAQAPn/AAAVAAUAAAARAPn/AAAVAAUAAAASAPn/AAAQAAQAAAASAPr/AAAQAAQAAAARAPr/AAAVAAUAAAAQAPr/AAAVAAUAAAAPAPr/AAAVAAUAAAAOAPr/AAAVAAUAAAANAPr/AAAOAAQAAAANAPv/AAAOAAQAAAAOAPv/AAAVAAUAAAAPAPv/AAAVAAUAAAAQAPv/AAAVAAUAAAARAPv/AAAVAAUAAAASAPv/AAAQAAQAAAASAPz/AAAQAAQAAAARAPz/AAAVAAUAAAAQAPz/AAAVAAUAAAAPAPz/AAAVAAUAAAAOAPz/AAAVAAUAAAANAPz/AAAOAAQAAAAHAPL/AAANAAQAAAAHAPD/AAANAAIAAAAHAPH/AAANAAMAAAAIAPD/AAAOAAIAAAAJAPD/AAAOAAIAAAAKAPD/AAAOAAIAAAALAPD/AAAOAAIAAAAMAPD/AAAOAAIAAAANAPD/AAARAAIAAAA=")
 tile_set = SubResource("TileSet_s6t3g")
@@ -272,3 +306,21 @@ scale = Vector2(0.3, 0.3)
 
 [node name="player" parent="." unique_id=775988961 instance=ExtResource("4_yguh4")]
 position = Vector2(79, -140)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1707926201]
+zoom = Vector2(4, 4)
+
+[node name="killZone3" parent="." unique_id=185851664 instance=ExtResource("6_crxtl")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="killZone3" unique_id=1196367383]
+polygon = PackedVector2Array(129, -233, 129, -198, 205, -198, 206, -234)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="killZone3" unique_id=1183122885]
+position = Vector2(33, 81)
+polygon = PackedVector2Array(131, -232, 130, -211, 186, -210, 186, -231)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="killZone3" unique_id=1711768069]
+polygon = PackedVector2Array(215, -112, 215, -54, 298, -54, 296, -133, 263, -134, 263, -112)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="killZone3" unique_id=9049428]
+polygon = PackedVector2Array(129, -171, 129, -163, 157, -163, 157, -173)

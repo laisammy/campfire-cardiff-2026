@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	game_manager.addPoint()
 	print("PARM")
+	game_manager.addPoint()
 	self.queue_free()

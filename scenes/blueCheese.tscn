@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://krwgljoqarog"]
 
+[ext_resource type="Script" uid="uid://dejbfe10jbh8" path="res://scenes/blue_cheese.gd" id="1_bsjd6"]
 [ext_resource type="Texture2D" uid="uid://csp3biyncsft7" path="res://assets/cheeseboard_item_pack/blue_cheese_64x64.png" id="1_rc8nj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boqn1"]
@@ -20,11 +21,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsjd6"]
 radius = 23.194826
 
-[node name="blueCheese" type="CharacterBody2D" unique_id=1718129830]
+[node name="blueCheese" type="Node2D" unique_id=368845357]
+script = ExtResource("1_bsjd6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1411033897]
 sprite_frames = SubResource("SpriteFrames_rc8nj")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960302290]
+[node name="Area2D" type="Area2D" parent="." unique_id=1894764281]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=960302290]
 shape = SubResource("CircleShape2D_bsjd6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
