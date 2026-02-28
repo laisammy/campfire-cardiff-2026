@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bl56l21hbjxk3"]
+
+[ext_resource type="Texture2D" uid="uid://q88541g58qr8" path="res://assets/Pipes_edited.png" id="1_2h662"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2h662"]
+radius = 62.0
+
+[node name="pipe2" type="Node2D" unique_id=161348729]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=451221414]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2h662")
+region_enabled = true
+region_rect = Rect2(240, 13, 64, 64)
+
+[node name="RotateArea" type="Area2D" parent="." unique_id=620765611]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotateArea" unique_id=1137727387]
+shape = SubResource("CircleShape2D_2h662")
+debug_color = Color(0.6627451, 0.5137255, 0, 0.21960784)

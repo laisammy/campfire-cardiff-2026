@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b53picbcn8742"]
+
+[ext_resource type="Script" uid="uid://ctlvprakq2fno" path="res://scenes/pipeRotation.gd" id="1_8lj81"]
+[ext_resource type="Texture2D" uid="uid://q88541g58qr8" path="res://assets/Pipes_edited.png" id="1_b6252"]
+[ext_resource type="FontFile" uid="uid://ewmbpv8fq43f" path="res://assets/font/PixelOperator8-Bold.ttf" id="3_xydbq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lj81"]
+radius = 38.013157
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xydbq"]
+size = Vector2(18, 32)
+
+[node name="pipe1" type="Node2D" unique_id=169049826]
+script = ExtResource("1_8lj81")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1557366477]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_b6252")
+region_enabled = true
+region_rect = Rect2(194, 13, 32, 64)
+
+[node name="RotateArea" type="Area2D" parent="." unique_id=1415321001]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotateArea" unique_id=838338754]
+shape = SubResource("CircleShape2D_8lj81")
+debug_color = Color(0.6627451, 0.5137255, 0, 0.21960784)
+
+[node name="PlayerCollision" type="Area2D" parent="." unique_id=946203481]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision" unique_id=394262138]
+shape = SubResource("RectangleShape2D_xydbq")
+
+[node name="RotateDisplay" type="CanvasLayer" parent="." unique_id=887328975]
+
+[node name="Label" type="Label" parent="RotateDisplay" unique_id=1482502631]
+texture_filter = 1
+offset_right = 37.0
+offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("3_xydbq")
+theme_override_font_sizes/font_size = 4
+text = "[R] Rotate"
+
+[connection signal="body_entered" from="RotateArea" to="." method="_on_area_2d_body_entered"]

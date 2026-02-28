@@ -23,7 +23,9 @@ radius = 27.073973
 [node name="gouda" type="CharacterBody2D" unique_id=1050007645]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1040835262]
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_f01q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141804678]
+scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_cwf0f")

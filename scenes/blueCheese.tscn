@@ -6,7 +6,7 @@
 atlas = ExtResource("1_rc8nj")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ahp8p"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rc8nj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -17,15 +17,14 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y1a4h"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsjd6"]
 radius = 23.194826
 
-[node name="blueCheese" type="CharacterBody2D" unique_id=1707797770]
+[node name="blueCheese" type="CharacterBody2D" unique_id=1718129830]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588341782]
-sprite_frames = SubResource("SpriteFrames_ahp8p")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1411033897]
+sprite_frames = SubResource("SpriteFrames_rc8nj")
 autoplay = "default"
-frame_progress = 0.24126315
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91634281]
-shape = SubResource("CircleShape2D_y1a4h")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960302290]
+shape = SubResource("CircleShape2D_bsjd6")

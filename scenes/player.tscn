@@ -48,7 +48,7 @@ height = 24.0
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"walk"
-frame_progress = 0.26094282
+frame_progress = 0.32306775
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=728112835]
 position = Vector2(4, -5.765)
